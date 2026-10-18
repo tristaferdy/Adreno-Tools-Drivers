@@ -68,8 +68,10 @@ c_link_args = ['-static-libstdc++']
 cpp_link_args = ['-static-libstdc++']
 EOF
     
-    export CFLAGS="-D__ANDROID__ -Wno-error -Wno-deprecated-declarations"
-    export CXXFLAGS="-D__ANDROID__ -Wno-error -Wno-deprecated-declarations"
+            -Doptimization=3 \
+        -Dshader-cache=enabled \
+        -Dbuild-id=true \
+
 
     meson setup "$build_dir" --cross-file android-cross.txt \
         -Dbuildtype=release \
